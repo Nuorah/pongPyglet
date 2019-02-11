@@ -9,7 +9,7 @@ ball_image = pyglet.resource.image("ball.bmp")
 class PhysicalObject(pyglet.sprite.Sprite):
     
     def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
+        super(PhysicalObject, self).__init__(*args, **kwargs)
         self.vx = 0.0
         self.vy = 0.0
         
@@ -19,7 +19,7 @@ class PhysicalObject(pyglet.sprite.Sprite):
 class Ball(PhysicalObject):
     
     def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
+        super(Ball, self).__init__(*args, **kwargs)
         self.vx = 200.0
         self.vy = 200.0
     
@@ -38,7 +38,7 @@ class Ball(PhysicalObject):
 class Player(PhysicalObject):        
     
     def __init__(self, *args, **kwargs):
-        super().__init__(img=player_image, *args, **kwargs)
+        super(Player, self).__init__(img=player_image, *args, **kwargs)
         self.vy = 200.0
         self.keys = dict(up=False, down=False)
         
