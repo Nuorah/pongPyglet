@@ -27,13 +27,19 @@ class Ball(PhysicalObject):
         super(Ball, self).update(dt)
         self.x = self.x + self.vx*dt
         self.y = self.y + self.vy*dt
-        self.collision()
+        self.collision(player)
         
-    def collision(self):
-        if self.x < 0 or self.x > (800-32):
+    def collision(self, player):
+        if self.x < 0 :
+            print("Game over")
+            exit()
+        if self.x > (800-32):
             self.vx = -self.vx
         if self.y < 0 or self.y > (600-32):
             self.vy = -self.vy
+        if self.x < 32 and self.y > player.y and self.y < player.y + 64:
+            self.vx = -self.vx
+
         
 class Player(PhysicalObject):        
     
